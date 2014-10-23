@@ -3,7 +3,7 @@ I read it in the grammar long ago.
 —William Shakespeare, The Tragedy of Titus Andronicus
 */
 
-/*White spaces */
+/* == White spaces == */
 
 // /*  */ are not safe for commenting out blocks of code,
 // esp. for code with regular expression e.g.
@@ -12,7 +12,7 @@ I read it in the grammar long ago.
 //	var rm_a = /a*/.match(s);
 //	*/
 
-/*Names */
+/* == Names == */
 /* reserved names:
 abstract
 boolean break byte
@@ -33,7 +33,7 @@ while with
 
 */
 
-/*Numbers*/
+/* == Numbers == */
 
 /*
 - JS has a single number type. Internally represented as a 64-bit floating
@@ -51,6 +51,34 @@ e.g. Math.floor(number) method can be used to convert a number into
 an integer
 
 */
+
+/* == Strings == */
+
+/*
+- JS was built at a time when Unicode was 16-bit character set;
+all characters are 16bits wide.
+
+- Good notes here -> https://mathiasbynens.be/notes/javascript-unicode
+	"It’s easiest to think of Unicode as a database that maps any 
+	symbol you can think of to a number called its code point, and 
+	to a unique name."
+*/
+console.log('\x41\x42\x43');
+console.log('\u0041\u0042\u0043');
+
+console.log('I \u2661 JavaScript!');
+
+/*
+- Strings are immutable
+- See String methods in Chap.8
+- String have a length property e.g.
+*/
+console.log('yes'.length);
+
+
+
+
+
 
 
 
