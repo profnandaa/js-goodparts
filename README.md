@@ -29,5 +29,5 @@ My own bib., from quick googling here and there. Will keep updating when I get b
 
 ###My Notes and Comments About the Book ###
 It goes without saying, the book is a master-piece, when it comes to **about the Javascript Language**
-* Notes coming..
+* I like the fact that every chapter starts off with a William Shakespear quote! :) That's why I include them as beginning statements in the various chapter files.
 
