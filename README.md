@@ -28,5 +28,6 @@ My own bib., from quick googling here and there. Will keep updating when I get b
 
 
 ###My Notes and Comments About the Book ###
-Coming...
+It goes without saying, the book is a master-piece, when it comes to **about Javascript Language**
+* Notes coming..
 
