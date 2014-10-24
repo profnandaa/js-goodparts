@@ -75,6 +75,25 @@ console.log('I \u2661 JavaScript!');
 */
 console.log('yes'.length);
 
+/*== Statements == */
+
+/*
+#Operator presedence
+
+. [] ( ) 		Refinement and invocation
+delete new 
+typeof + - ! 	Unary operators
+* / % 			Multiplication, division, modulo
++ - 			Addition/concatenation, subtraction
+>= <= > < 		Inequality
+=== !== 		Equality
+&& 				Logical and
+|| 				Logical or
+?: 				Ternary
+
+*/
+
+
 
 
 
