@@ -237,10 +237,42 @@ typeof flight.constructor;	//'function'
 flight.hasOwnProperty('number');		//true
 flight.hasOwnProperty('constructor')	//false
 
+/* == Enumaration == */
+/*
+* The for in statement can loop over all of the properties in
+	an object. The enumeration will include all the properties - 
+	including functions and prototypes that you might not be
+	interested in. 
+	So it is necessary to filter out the values you don't want.
+	The most common filters are the hasOwnProperty method and
+	using typeof to exclude functions:
+*/
 
+var name;
+for(name in another_stooge){
+	if(typeof another_stooge[name] != 'function'){
+		document.writeln(name + ':' + another_stooge[name]);
+	}
+}
 
+/*
+* Properties appear in any order.
+	If you want to assure that properties appear in a particular
+	order, it is best to avoid teh for in statement entiresly and
+	instead make an array containing the names of the properties in
+	the correct order:
+*/
 
-
+var i;
+var properties = [
+	'first-name',
+	'middle-name',
+	'last-name',
+	'profession'
+];
+for(i=0; i<properties.length; i += 1){
+	document.writeln(properties[i] + ' : '+ another_stooge[properties[i]]);
+}
 
 
 
