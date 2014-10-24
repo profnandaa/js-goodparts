@@ -3,6 +3,11 @@ Javascript: The Good Parts
 
 I'm going through Douglas Crockford's (May, 2008) book once again, and felt like it's good I document my notes (and thoughts) within code examples.
 
+**Who is it for?**
+* This is for anyone who might have read the book but will prefer just perusing through some notes
+* For someone who thinks he will rather read code than read a book. But I recommend, grub your copy, read it! It's a small 172 page book, surely you can read :)
+* For me - I would wish to use it later, for quick reference and also may form a basis of a course I may want to teach anywhere. (I love teaching, but you know teachers will be judged more hushly ;) )
+
 
 **About the Book (Summary)**
 > This is a book **about** the JavaScript programming language. It is intended for programmers who, by happenstance or curiosity, are venturing into JavaScript for the first time. It is also intended for programmers who have been working with JavaScript at a novice level and are now ready for a more sophisticated relationship with the language. JavaScript is a surprisingly powerful language.
