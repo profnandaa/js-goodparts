@@ -22,7 +22,7 @@ I'm going through Douglas Crockford's (May, 2008) book once again, and felt like
 
 
 ###Bibliography####
-My own bib., from quick googling here and there. Will keep updating when I get better resources that address the respective subject matters.
+My own bib., from quick googling here and there. Will keep updating when I get better resources that address the respective subject matter.
 
 * Chap.2, on Strings (Unicode), [@mathias, 2013 (blog-post), JavaScript Unicode](https://mathiasbynens.be/notes/javascript-unicode)
 

@@ -135,6 +135,77 @@ var a = {}, b = {}, c = {};
 a = b = c = {};
 //a,b and c all refer to the same empty object
 
+/* == Prototype == */
+/*
+
+* Every object is linked to a prototype object from which it 
+	can inherit properties
+
+* All objcets created from object literals are linked to 
+	Object.prototype, an object that comes standard with JS.
+
+* When you make a new object, you can select the object that should be
+	its prototype.
+
+* Simplified mechanism:
+	We will add a create method to the object function. The create
+	method creates a new object that uses an object as its prototype.
+*/
+
+if(typeof Object.create !== 'function'){
+	Object.create = function(o){
+		var F = function(){};
+		F.prototype = o;
+		return new F();
+	};
+}
+
+var another_stooge = Object.create(stooge);
+
+/*
+* The prototype link has no effect on updating when we make changes to
+	an object, the object's prototype is not touched.
+*/
+
+another_stooge['first-name'] = 'Harry';
+another_stooge['middle-name'] = 'Moses';
+another_stooge.nickname = 'Moe';
+
+/*
+* The prototype link is used only in retrieval.
+	If we try to retrive a property value from an object, and
+	if the object lacks the property name, then JS attemptes
+	to retrive the property value from the prototype object.
+	And if that object is lacking the property, then it goes to it's
+	prototype, and so on until the process finally bottoms out with
+	Object.prototype. 
+	This is called delegation.
+
+* The prototype relationship is a dynamic relationship. If we add a new
+	property to a prototype, that property will immediately be visible
+	in all of the objects that are based on that prototype:
+*/
+
+stooge.profession = 'actor';
+another_stooge.profession; //'actor'
+console.log(another_stooge);
+
+/*
+More on prototype chain in Chap. 6
+*/
+
+/*
+
+#Aside:  __proto__ vs prototype 
+from http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript
+
+* __proto__ is the actual object that is used in the lookup 
+	chain to resolve methods, etc.  prototype is the object 
+	that is used to build __proto__ when you create an object with new:
+*/
+( new Foo ).__proto__ === Foo.prototype
+( new Foo ).prototype === undefined
+
 
 
 
