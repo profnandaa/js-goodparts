@@ -21,11 +21,10 @@ I'm going through Douglas Crockford's (May, 2008) book once again, and felt like
 > This is not a book for dummies. This book is small, but it is dense. There is a lot of material packed into it. Don’t be discouraged if it takes multiple readings to get it. Your efforts will be rewarded.
 
 
-##Bibliography###
+###Bibliography####
 My own bib., from quick googling here and there. Will keep updating when I get better resources that address the respective subject matters.
 
-###Chapter 2: Grammer###
-[@mathias, 2013, JavaScript Unicode (blog-post)](https://mathiasbynens.be/notes/javascript-unicode)
+* Chap.2, on Strings, [@mathias, 2013, JavaScript Unicode (blog-post)](https://mathiasbynens.be/notes/javascript-unicode)
 
 
 ##My Notes and Comments About the Book ##
