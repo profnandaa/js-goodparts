@@ -208,6 +208,35 @@ from http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript
 
 */
 
+/* == Reflection == */
+/*
+* Using typeof operator in determining the type of a property:
+*/
+
+typeof flight.number;	//'number'
+typeof flight.status;	//'string'
+typeof flight.arrival;	//'object'
+typeof flight.manifest;	//'undefined'
+
+/*
+* Some care must be taken because any property on the prototype 
+	chain can produce a value:
+*/
+
+typeof flight.toString;		//'function'
+typeof flight.constructor;	//'function'
+
+/*
+* Two approaches dealing with this:
+	- Look for and reject function values
+	- Use the hasOwnProperty method, which returns true if the object
+		has a particular property. It does not look at the prototype
+		chain.
+*/
+
+flight.hasOwnProperty('number');		//true
+flight.hasOwnProperty('constructor')	//false
+
 
 
 
