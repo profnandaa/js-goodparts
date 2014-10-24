@@ -320,7 +320,8 @@ MYAPP.flight = {
 		IATA : "LAX",
 		time: "2014-09-23 10:43",
 		city : "Nairobi"
-	};
+	}
+};
 
 /*
 * By reducing your global footprint to a single name, you 
