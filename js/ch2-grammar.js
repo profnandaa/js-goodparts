@@ -93,6 +93,18 @@ typeof + - ! 	Unary operators
 
 */
 
+/* == Literals == */
+
+/*
+
+Types of literals:
+* Number literal
+* String literal
+* Array literal
+* Function literal
+* Regexp literal
+
+*/
 
 
 
