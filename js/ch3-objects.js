@@ -92,8 +92,32 @@ var status = flight.status || "unknown";
 */
 
 flight.equipment;							//undefined
-flight.equipment.model;						//throw "TypeError"
+// flight.equipment.model;						//throw "TypeError"
 flight.equipment && flight.equipment.model;	//undefined
+
+/* == Update == */
+/* 
+
+* A value in an object can be updated by assignment. If the property
+	name already exists in the object, the property value is replaced.
+*/
+stooge['fist-name'] = 'Jerome';
+
+/*
+
+* If teh object does not already have the property name, the object
+	is augmented:
+*/
+
+stooge['middle-name'] = 'Tony';
+stooge.nickname = 'Curly';
+flight.equipment = {
+	model : 'Boeng 787'
+};
+flight.status = 'overdue';
+
+console.log(stooge);
+
 
 
 
