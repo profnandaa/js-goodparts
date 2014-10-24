@@ -293,9 +293,42 @@ delete another_stooge.nickname;
 
 console.log(another_stooge.nickname);		// 'Curly'
 
+/* == Global Abatement == */
+/*
+* One way to minimize the use of global variables is to create a 
+	single global variable for your application:
+*/
+var MYAPP = {};
 
+/*
+That variable then becomes the container for your application
+*/
+MYAPP.stooge = {
+	"fist-name":"Joe",
+	"last-name":"Howard"
+};
 
+MYAPP.flight = {
+	airline: "Ocean",
+	number: 815,
+	departure: {
+		IATA : "SYD",
+		time : "2014-09-22 14:50",
+		city: "Lagos"
+	},
+	arrival: {
+		IATA : "LAX",
+		time: "2014-09-23 10:43",
+		city : "Nairobi"
+	};
 
-
-
+/*
+* By reducing your global footprint to a single name, you 
+	significantly reduce the chance of bad iterations with other 
+	applications, widgets or libraries. Your program also 
+	becomes easier to read.
+* In the next chapter, we will see wyas to use closure for
+	information hiding, which is another effective global abatement 
+	technique.
+*/
 
