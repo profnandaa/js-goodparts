@@ -27,6 +27,6 @@ My own bib., from quick googling here and there. Will keep updating when I get b
 * Chap.2, on Strings, [@mathias, 2013, JavaScript Unicode (blog-post)](https://mathiasbynens.be/notes/javascript-unicode)
 
 
-##My Notes and Comments About the Book ##
+###My Notes and Comments About the Book ###
 Coming...
 
