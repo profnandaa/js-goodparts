@@ -62,5 +62,42 @@ var flight = {
 
 console.log(flight);
 
+/* == Retrieval == */
+
+/*
+
+* use []
+* If the string expression is a constant, and if it is a legal JS name,
+	then the . (dot) notation can be used instead (reads better).
+*/
+
+stooge["first-name"];
+flight.departure.IATA;
+
+/*
+
+* The undefined value is produced if an attempt is made to retrieve a
+	nonexistent member
+
+* The || operator can be used to fill in default values:
+*/
+
+var middle = stooge["middle-name"] || "(none)";
+var status = flight.status || "unknown";
+
+/*
+
+* Attempting to retrieve values from undefined will throw a TypeError
+	exception. This can be guarded against with the && operator
+*/
+
+flight.equipment;							//undefined
+flight.equipment.model;						//throw "TypeError"
+flight.equipment && flight.equipment.model;	//undefined
+
+
+
+
+
 
 
