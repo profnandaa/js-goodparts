@@ -68,3 +68,47 @@ var add = function(a,b){
 	expressive power.
 */
 
+/* == Invocation == */
+/*
+* Invoking a function suspends the execution of the current function, passing
+	control and paramenters to the new function.
+* In addition to the declared paramenters, every function receives two 
+	additional parameters: `this` and `arguments`
+* There are 4 patterns of Invocation:
+	(1) the method invocation pattern
+	(2) the function invocation pattern
+	(3) the constructor invocation pattern
+	(4) the apply invocation pattern
+  The patterns differ in how the bonus paramenter `this` is initialized.
+
+(1) The Method Invocation pattern
+* When a function is stored as a property of an object, we call it a method.
+* If an invocation expression contains a refinement (that is . (dot) expression
+	or [subscript] expression) it is invoved as a method.
+*/
+
+//Create myObject. It has a value and an increment method.
+//The increment method takes an optional paramenter. If the argument
+//is not a number, then 1 is used as the default.
+
+var myObject = {
+	value : 0,
+	increment: function(inc){
+		this.value += typeof inc === 'number' ? inc : 1;
+	}
+};
+
+myObject.increment();
+console.log(myObject.value); //1
+
+myObject.increment(10);
+console.log(myObject.value); //11
+
+/*
+* A method can use `this` to access the object so that it can retrieve
+	values from the object or modify the object. This binding of `this`
+	to the object happens at incovation time. This very late binding makes
+	functions that us this highly reusable.
+* Methods that get their object context from `this` are called public methods.
+
+*/
