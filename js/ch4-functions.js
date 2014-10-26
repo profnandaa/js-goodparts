@@ -184,6 +184,32 @@ console.log(myQuo.get_status()); //'confused'
 	with a capitalized name.
 * Use of this style of constructor functions is not recommended. We
 	will see better alternatives in the next chapter.
+
+(3) The Apply Invocation Pattern
+* Because JS is functional object-oriented language, functions can
+	have methods.
+* The `apply` method lets us construct an array of arguments to use
+	to invoke a function.
+* The `apply` method takes two paramenters:
+	(i) the value that should be bound to `this`
+	(ii)the array of parameters
 */
+
+//Make an array of 2 members and add them
+
+var array = [3,4];
+var sum = add.apply(null,array);
+
+//Make an object with a status member
+
+var statusObject = {
+	status : 'A-OK'
+};
+
+//statusObject does not inherit from Quo.prototype, but we can invoke
+//the get_status method on statusObject even though statusObject
+//even though statusObject does not have a get_status method.
+
+var status = Quo.prototype.get_status.apply(statusObject);
 
 
