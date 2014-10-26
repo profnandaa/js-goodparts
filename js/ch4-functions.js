@@ -147,3 +147,43 @@ myObject.double = function(){
 
 myObject.double();
 console.log(myObject.value); 
+
+/*
+(3) The Constructor Invocation Pattern
+* JS is a prototypal inheritance language. That means that objects
+	can inherit properties directly from other objects.
+	The language is class-free.
+* If a function is invoked with the `new` prefix, then a new object
+	will be created with hidden links to the value of the function's
+	prototype member, and `this` will be bound to that new object.
+* The `new` prefix also changes the behavior of the `return` statement.
+*/
+
+//Create a constructor function called Quo.
+//It makes an object with a status property.
+
+var Quo = function (string){
+	this.status = string;
+};
+
+//Give all instances of Quo a public method called get_status
+
+Quo.prototype.get_status = function(){
+	return this.status;
+}
+
+//Make an instance of Quo
+
+var myQuo = new Quo("confused");
+
+console.log(myQuo.get_status()); //'confused'
+
+/*
+* Functions that are intended to be used with the `new` prefix are
+	called constructors. By convention, they are kep in variables
+	with a capitalized name.
+* Use of this style of constructor functions is not recommended. We
+	will see better alternatives in the next chapter.
+*/
+
+
