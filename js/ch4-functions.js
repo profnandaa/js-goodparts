@@ -111,4 +111,39 @@ console.log(myObject.value); //11
 	functions that us this highly reusable.
 * Methods that get their object context from `this` are called public methods.
 
+(2) The Function Invocation Pattern
+* When a function is not the property of an object, then it is invoked
+	as a function:
 */
+
+var sum = add(3,4); //7
+
+/*
+* When a function is invoked with this atter, `this` is bound to the
+	global object. This was a mistake in the design of the language.
+	A consequence of this error is that a method cannot employ an
+	inner function to help it do its work because the inner function
+	does not share the method's access to the object as its `this`
+	is bound to the wrong value.
+	- 	Fortunately, there's a workaround. If the method defines a 
+		variable and assigns it the value of `this`, the inner function
+		will have access to `this` through that variable. By convention,
+		the name of that variable is `that`.
+*/
+
+//Augment myObject with a double method.
+
+myObject.double = function(){
+	var that = this;	//Workaround
+
+	var helper = function(){
+		that.value = add(that.value,that.value);
+	}
+
+	helper();	//Invoke helper as a function.
+};
+
+//Invoke double as a method
+
+myObject.double();
+console.log(myObject.value); 
