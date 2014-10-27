@@ -212,7 +212,7 @@ var statusObject = {
 
 var status = Quo.prototype.get_status.apply(statusObject);
 
-/* == Arguments == */
+/* == Arguments, pg.31 == */
 /*
 * A bonus parameter that is available to functions that is available to
 	functions when they are invoked is the `arguments` array. It gives
@@ -243,6 +243,18 @@ console.log(sum(10,30,50,23,54));
 	array-like object. `arguments` has a length property, but lacks all
 	of the array methods.
 */
+
+/* == Return, pg.31 == */
+/*
+* The `return` statement can be used to cause the functions to be 
+	return early.
+* A function always returns a value. If the `return` value is not
+	specified, then `undefined` is returned.
+* If the function was invoked with the `new` prefix and the `return`
+	value is not an object, then `this` (like new object) is returned
+	instead.
+*/
+
 
 
 
