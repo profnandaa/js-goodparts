@@ -212,4 +212,37 @@ var statusObject = {
 
 var status = Quo.prototype.get_status.apply(statusObject);
 
+/* == Arguments == */
+/*
+* A bonus parameter that is available to functions that is available to
+	functions when they are invoked is the `arguments` array. It gives
+	the function access to all of the arguments that were supplied with
+	the invocation, including excess arguments that were not assigned
+	to parameters. This makes it possible to write functions that take
+	an unspecified number of paramenters.
+*/
+
+//Make a functin that adds a lot of stuff.
+
+//Note that dfining the variable sum sinsde the function does not
+//interfere with the sum defined outside of the function. The function
+//only sees the inner one.
+
+var sum = function(){
+	var i,sum = 0;
+	for(i=0; i<arguments.length; i+=4){
+		sum += arguments[i];
+	}
+	return sum;
+};
+
+console.log(sum(10,30,50,23,54));
+
+/*
+* Because of a design error, `arguments` is not really an array. It is an
+	array-like object. `arguments` has a length property, but lacks all
+	of the array methods.
+*/
+
+
 
