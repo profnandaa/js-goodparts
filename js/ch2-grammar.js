@@ -3,7 +3,7 @@ I read it in the grammar long ago.
 —William Shakespeare, The Tragedy of Titus Andronicus
 */
 
-/* == White spaces == */
+/* == White spaces, pg.5 == */
 
 // /*  */ are not safe for commenting out blocks of code,
 // esp. for code with regular expression e.g.
@@ -12,28 +12,30 @@ I read it in the grammar long ago.
 //	var rm_a = /a*/.match(s);
 //	*/
 
-/* == Names == */
-/* reserved names:
-abstract
-boolean break byte
-case catch char class const continue
-debugger default delete do double
-else enum export extends
-false final finally float for function
-goto
-if implements import in instanceof int interface
-long
-native new null
-package private protected public
-return
-short static super switch synchronized
-this throw throws transient true try typeof
-var volatile void
-while with
+/* == Names, pg.6 == */
+
+/* 
+* reserved names:
+		abstract
+		boolean break byte
+		case catch char class const continue
+		debugger default delete do double
+		else enum export extends
+		false final finally float for function
+		goto
+		if implements import in instanceof int interface
+		long
+		native new null
+		package private protected public
+		return
+		short static super switch synchronized
+		this throw throws transient true try typeof
+		var volatile void
+		while with
 
 */
 
-/* == Numbers == */
+/* == Numbers, pg.7 == */
 
 /*
 - JS has a single number type. Internally represented as a 64-bit floating
@@ -52,7 +54,7 @@ an integer
 
 */
 
-/* == Strings == */
+/* == Strings, pg.8 == */
 
 /*
 - JS was built at a time when Unicode was 16-bit character set;
@@ -75,7 +77,59 @@ console.log('I \u2661 JavaScript!');
 */
 console.log('yes'.length);
 
-/*== Statements == */
+/*== Statements, pg.10 == */
+
+/*
+Types of statements:
+	- expression statements
+	- disruptive statements
+	- try statements
+	- if statements
+	- switch statements
+	- while statements
+	- for statement
+	- do statement
+
+* If statement:
+
+if (expression){
+	statements
+}else{
+	statements
+}
+	Here are the false values:
+		- false
+		- null
+		- undefined
+		- The empty string ''
+		- The number 0
+		- The number NaN
+
+* Switch statement
+switch(expression) {
+    case n:
+        code block
+        break;
+    case n:
+        code block
+        break;
+    default:
+        default code block
+}
+
+*While statement
+
+while (condition) {
+    code block to be executed
+}
+
+*For statement
+for (statement 1; statement 2; statement 3) {
+    code block to be executed
+}
+
+
+/* == Expressions, pg.15 == */
 
 /*
 #Operator presedence
@@ -93,7 +147,7 @@ typeof + - ! 	Unary operators
 
 */
 
-/* == Literals == */
+/* == Literals, pg.17 == */
 
 /*
 
@@ -106,7 +160,7 @@ Types of literals:
 
 */
 
-/* == Functions == */
+/* == Functions, pg.19 == */
 
 /*
 "A function literal defines a function value. It can have an optional name that it can
@@ -115,10 +169,3 @@ ables initialized by the invocation arguments. The body of the function includes
 able definitions and statements. There will be more about functions in Chapter 4.
 "
 */
-
-
-
-
-
-
-

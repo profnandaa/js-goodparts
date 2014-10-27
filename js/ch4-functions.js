@@ -18,7 +18,8 @@ Mine were the very cipher of a function...
 
 */
 
-/* == Function Objects == */
+/* == Function Objects, pg.26 == */
+
 /*
 * Functions in JS are objects. Objects are collections of name/value pairs
 	having a hidden link to a prototype object.
@@ -37,7 +38,8 @@ Mine were the very cipher of a function...
 * The thing that is special about function is that they can be invoked.
 */
 
-/* == Function Literal == */
+/* == Function Literal, pg.27 == */
+
 /*
 * Function objects are created within function literals:
 */
@@ -68,7 +70,8 @@ var add = function(a,b){
 	expressive power.
 */
 
-/* == Invocation == */
+/* == Invocation, pg.27 == */
+
 /*
 * Invoking a function suspends the execution of the current function, passing
 	control and paramenters to the new function.

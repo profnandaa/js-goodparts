@@ -24,7 +24,7 @@ Upon a homely object Love can wink.
 
 */
 
-/* == Object Literals == */
+/* == Object Literals, pg.20 == */
 
 /* example */
 
@@ -62,7 +62,7 @@ var flight = {
 
 console.log(flight);
 
-/* == Retrieval == */
+/* == Retrieval, pg.21 == */
 
 /*
 
@@ -95,7 +95,8 @@ flight.equipment;							//undefined
 // flight.equipment.model;						//throw "TypeError"
 flight.equipment && flight.equipment.model;	//undefined
 
-/* == Update == */
+/* == Update, pg.22 == */
+
 /* 
 
 * A value in an object can be updated by assignment. If the property
@@ -105,7 +106,7 @@ stooge['fist-name'] = 'Jerome';
 
 /*
 
-* If teh object does not already have the property name, the object
+* If the object does not already have the property name, the object
 	is augmented:
 */
 
@@ -118,7 +119,8 @@ flight.status = 'overdue';
 
 console.log(stooge);
 
-/* == Reference == */
+/* == Reference, pg.22 == */
+
 /*
 
 * Objects are passed around by reference. They are never copied.
@@ -135,7 +137,8 @@ var a = {}, b = {}, c = {};
 a = b = c = {};
 //a,b and c all refer to the same empty object
 
-/* == Prototype == */
+/* == Prototype, pg.22 == */
+
 /*
 
 * Every object is linked to a prototype object from which it 
@@ -208,7 +211,8 @@ from http://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript
 
 */
 
-/* == Reflection == */
+/* == Reflection, pg.23 == */
+
 /*
 * Using typeof operator in determining the type of a property:
 */
@@ -237,7 +241,8 @@ typeof flight.constructor;	//'function'
 flight.hasOwnProperty('number');		//true
 flight.hasOwnProperty('constructor')	//false
 
-/* == Enumaration == */
+/* == Enumaration, pg.24 == */
+
 /*
 * The for in statement can loop over all of the properties in
 	an object. The enumeration will include all the properties - 
@@ -275,7 +280,8 @@ for(i=0; i<properties.length; i += 1){
 }
 
 
-/* == Delete == */
+/* == Delete, pg.24 == */
+
 /*
 * The delete operator can be used to remove a property from an object.
 	It will remove a property from the object if it has one. It will 
@@ -293,7 +299,8 @@ delete another_stooge.nickname;
 
 console.log(another_stooge.nickname);		// 'Curly'
 
-/* == Global Abatement == */
+/* == Global Abatement, pg.24 == */
+
 /*
 * One way to minimize the use of global variables is to create a 
 	single global variable for your application:
