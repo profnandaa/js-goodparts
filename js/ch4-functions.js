@@ -451,3 +451,86 @@ var foo = function(){
 	function at the top of the function body; since it lacks
 	block scope.
 */
+
+/* == Closure, pg.37 == */
+/*
+* The good news about scope is that inner functions get access
+	to the parameters and variables of the functions that are
+	defined within (with the exception of `this` and `arguments`).
+* Suppose we wanted to protect the value of myObject (define
+	earlier) from unauthrized changes.
+	Intead of initializng myObject with an object literal, 
+	we will initialize myObject by calling a function that
+	returns an object literal. That function defines a `value`
+	variable. That variable is always available to the increment
+	and getValue methods, but the function's scope keeps it hidden
+	from the rest of the program.
+*/
+
+var myObject = function(){
+	var value = 0;
+
+	return {
+		increment: function(inc){
+			value += typeof inc === 'number' ? inc : 1;
+		},
+		getValue: function(){
+			return value;
+		}
+	};
+}();
+
+//The function returns an object containing two methods
+//And those methods continue to enjoy the privilege of
+//access to value variable.
+
+/*
+* The `Quo` constructor earlier on produced an object with
+	a status property and a get_status method. Why would
+	you call a getter method on a property you could access
+	directly? It would be more useful if the status property
+	were private.
+*/
+
+//Create a maker function called Quo. It makes an object
+//with a get_status method and a private status property
+
+var quo = function(status){
+	return{
+		get_status: function(){
+			return status;
+		}
+	};
+};
+
+//Make an instance of quo
+
+var myQuo = quo("amazed");
+
+console.log(myQuo.get_status());
+
+/*
+* get_status does not have access to a copy of the parameter,
+	it has access to the parameter itself. This is possible
+	because the function has access to the context which
+	it was created. This is called closure.
+*/
+
+//Another example
+//Define a function that sets a DOM node's color to yellow
+//and then fades it to white.
+
+var fade = function(node){
+	var level = 1;
+	var step = function(){
+		var hex = level.toString(16);
+		node.style.backgroundColor = '#FFFF' + hex + hex;
+		if(level < 15){
+			level += 1;
+			setTimeout(step,100);
+		}
+	};
+	setTimeout(step,100);
+};
+
+fade(document.body);
