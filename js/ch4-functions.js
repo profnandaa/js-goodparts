@@ -410,3 +410,44 @@ var factorial = function factorial(i,a){
 };
 
 console.log(factorial(4));
+
+/* == Scope, pg.36 == */
+/*
+* Scope in a programming language controls the visibility and
+	lifetimes of variables and parameters.
+* Reduces naming collisions and provides automatic memory
+	management.
+*/
+
+var foo = function(){
+	var a = 3, b = 5;
+
+	var bar = function(){
+		var b = 7, c = 11;
+
+		//at this point, a is 3, b is 7 and c is 11
+
+		a += b + c;
+
+		//at this point, a is 21, b is 7 and c is 11
+	};
+
+	//at this point, a is 3, b is 5 and c is not defined
+
+	bar();
+
+	//at this point, a is 21, b is 5
+	console.log(a + "," + b + "," + c);
+};
+
+/*
+* JavaScript does not have block scope.
+* JavaScript does have function scope. That means that the
+	parameters and variables defined in a function are not
+	visible outside of the function, and that a variable defined
+	anywhere within a function is visible everywhere within the
+	function.
+* In JS, it is best to declare all the variables used in a 
+	function at the top of the function body; since it lacks
+	block scope.
+*/
