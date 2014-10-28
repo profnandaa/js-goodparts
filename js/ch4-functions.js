@@ -301,7 +301,49 @@ try_it();
 	its `catch` clause.
 */
 
+/* == Augmenting Types, pg.32 == */
+/*
+* JS allows the basic types of the language to be augmented.
+* eg. by augmenting Function.prototype we can make a method
+	available to all functions:
+*/
+
+Function.prototype.method = function(name,func){
+	this.prototype[name] = func;
+	return this;
+}
+
+/*
+* By augmenting Function.prototype with a `method` method, we
+	no longer have to type the name of the prototype properly.
+	That bit of ugliness can now be hidden.
+* It does not have a separate type, so it is sometimes 
+	necessary to extract just the integer part of a number.
+	The methd JS provides to do that is ugly. We can fix by 
+	adding an integer method to Number.prototype. It uses 
+	either Math.ceil (was errata in book 'ceiling!') or Math.floor, depending on the sign 
+	of the number:
+*/
+
+Number.method('integer',function(){
+	return Math[this < 0 ? 'ceil' : 'floor'](this);
+});
 
 
 
+console.log((-10/3).integer());
 
+/*
+* JS lacks a method that removes spaces from ends of a string.
+To fix: 
+*/
+
+String.method('trim',function(){
+	return this.replace(/^\s+|\s+$/g,'');
+});
+
+/*
+* Because of the dunamic nature of JSs prototypal inheritance, 
+	all values are immediately endowed with the new methds, even 
+	values that were created befre the methods were created.
+*/

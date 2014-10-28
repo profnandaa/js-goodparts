@@ -30,4 +30,5 @@ My own bib., from quick googling here and there. Will keep updating when I get b
 ###My Notes and Comments About the Book ###
 It goes without saying, the book is a master-piece, when it comes to **about the Javascript Language**
 * I like the fact that every chapter starts off with a William Shakespear quote! :) That's why I include them as beginning statements in the various chapter files.
+* Came across one errata so far, there's no Math.ceiling function, rather it's Math.ceil (page 33). Is also [reported](http://www.oreilly.com/catalog/errata.csp?isbn=9780596517748)
 
