@@ -534,3 +534,51 @@ var fade = function(node){
 };
 
 fade(document.body);
+
+/* == Callbacks, pg.40 == */
+/*
+* Functions can make it easier to deal with
+	discontinuous events.
+	e.g. there is a sequence that begins with a
+	user interaction, making a request of the
+	server, and finally displaying the server's
+	response. The naive way to write would be:
+*/
+
+function prepare_the_request(){
+	//dummy function
+}
+
+function send_request_synchronously(req){
+	//dummy function
+}
+
+function send_request_asynchronously(req,func){
+	//dummy function
+}
+
+function display(){
+	//dummy function
+}
+
+request = prepare_the_request();
+response = send_request_synchronously(request);
+display(response);
+
+/*
+* A better approach is to make an asynchronous 
+	request, providing a callback function that will
+	be invoked when the server's response is received.
+	An asynchronous function returns immediately, so
+	the client isn't blocked.
+*/
+
+request = prepare_the_request();
+send_request_asynchronously(request,
+	function(response){
+		display(response);
+	});
+
+//We pass a function parameter to the send_request_asynchronously
+//function that will be called when the response is available
+
