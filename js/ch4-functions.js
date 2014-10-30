@@ -698,3 +698,15 @@ console.log(unique);
 	strings, but would be unable to change the `prefix`
 	or `seq`
 */
+
+/* == Cascade, pg.43 == */
+/*
+* Some methods do not have a return value. If we
+	have those methods return `this` instead of
+	`undefined`, we can enable cascades. In a cascade,
+	we call many methods on the same object in sequence
+	in a single statement.
+#Aside: I see this a lot in jQuery - @prof.
+*/
+
+
