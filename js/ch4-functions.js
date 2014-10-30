@@ -582,3 +582,119 @@ send_request_asynchronously(request,
 //We pass a function parameter to the send_request_asynchronously
 //function that will be called when the response is available
 
+/* == Module, pg.40 == */
+/*
+* We can use functions and closure to make modules.
+	A module is a function or object that presents an
+	interface but that hides its state and implementation.
+
+	e.g. suppose we want to augment `String` with a 
+	`deentityify` method. Its job is to look for HTML
+	entities in a string and replace them with their
+	equivalents.
+
+	The ideal approach is to put in a closure and perhaps
+	provide an extra method that can add additional entities.
+*/
+
+String.method('deentityify',function(){
+	//The entity table. It maps entity names to 
+	// characters
+
+	var entity = {
+		quot : '"',
+		lt : '<',
+		gt : '>'
+	};
+
+	//Return the deentityify method
+
+	return function(){
+		return this.replace(/&([^&;]+);/g,
+			function(a,b){
+				var r = entity[b];
+				return typeof r === 'string' ? r : a;
+			});
+	};
+}());
+
+/*
+* In the last line. We immediately invoke the function
+	we just made with the () operator. That invocation
+	creates and returns the function that becomes the
+	deentityify method.
+*/
+
+console.log('&lt;&quot;&gt;'.deentityify());
+
+/*
+* The module patter takes advantage of function
+	scope and closure to create relationships
+	that are binding and private.
+
+* The general pattern of a module is a function that
+	defines private variables and functions which,
+	through closure, will have access to the private
+	variables and functions; and returns the privileged
+	functionsm or stores them in accessible place.
+
+* Use of the module patter can eliminate the use of
+	global variables. It promotes information hiding
+	and other good design practives. It is very
+	effective in encapsulating applications and 
+	other singletons.
+
+* It can also be used to provide objects that are
+	secure. Let's suppose we want to make an object
+	that produces a serial number:
+*/
+
+var serial_maker = function(){
+	//produce an object that produces unique strings
+	//A unique string is made up of two parts: a prefix
+	//and a sequence number. The object comes with
+	//methods for setting the prefix and sequence number,
+	//and a gensym method that produces strings
+
+	var prefix = '';
+	var seq = 0;
+	return {
+		set_prefix:function(p){
+			prefix = String(p);
+		},
+		set_seq: function(s){
+			seq = s;
+		},
+		gensym: function(){
+			var result = prefix + seq;
+			seq += 1;
+			return result;
+		}
+	};
+};
+
+var seqer = serial_maker();
+seqer.set_prefix('Q');
+seqer.set_seq(1000);
+var unique = seqer.gensym();	//unique is "Q1000"
+
+console.log(unique);
+
+/*
+* The methods do not make use of `this` or `that`.
+	As a result, there is no way to compromise the
+	`seqer`. It isn't possible to get or change the
+	`prefix` or `seq` except as permitted by the 
+	methods. The `seqer` obect is mutable, so the
+	methods could be replaced, but that still does
+	not give access to its secrets.
+
+* `seqer` is simply a collection of functions and 
+	those functions have capabilities that grant
+	specific pwer to use or modify the secret state.
+
+* If we passed seqer.gensym to a third party's function,
+	that function would be able to generate unique
+	strings, but would be unable to change the `prefix`
+	or `seq`
+*/
