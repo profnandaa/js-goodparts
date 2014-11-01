@@ -710,3 +710,48 @@ console.log(unique);
 */
 
 
+/* == Curry, pg.44 == */
+/*
+* Currying allows us to produce a new function by
+	combining a function and an argument:
+		var add1 = add.curry(1);
+		document.writeln(add1(6)); //7
+  - add1 is a function that was created by passing
+	1 to add's curry method. The add1 function adds
+	1 to its argument.
+
+* JS does not have a curry method, but we can fix that
+	by augmenting Function.prototype
+*/
+
+// Function.method('curry',function(){
+// 	var args = arguments, that = this;
+// 	return function(){
+// 		return that.apply(null, args.concat(arguments));
+// 	};
+// }); //something isn't right
+
+/*
+* The curry method works by creating a closure that holds
+	that original functiona nd the arguments to curry.
+* Unfortunately, as we saw earlier, the arguments arrya
+	is not an array, so it does not have teh concat
+	method. To work around that, we will apply the array
+	slice method on both of the argument arrays. This
+	produces arrays that behave correctly with the concat
+	method.
+*/
+
+Function.method('curry',function(){
+	var slice = Array.prototype.slice,
+		args = slice.apply(arguments),
+		that = this;
+
+	return function(){
+		return that.apply(null,args.concat(slice.apply(arguments)));
+	};
+});
+
+
+var add1 = add.curry(1);
+console.log(add1(6));
