@@ -756,7 +756,7 @@ Function.method('curry',function(){
 var add1 = add.curry(1);
 console.log(add1(6));
 
-/* == Memoization == */
+/* == Memoization, pg.44 == */
 /*
 * Functions can use objects to remember the results
 	of previous operations, making it possible to avoid
